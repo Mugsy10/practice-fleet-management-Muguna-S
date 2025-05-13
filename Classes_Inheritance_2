@@ -1,0 +1,65 @@
+class LibraryItem {
+  constructor(title, id) {
+    this.title = title;
+    this.id = id;
+    this.isAvailable = true;
+  }
+
+  checkOut() {
+    this.isAvailable = false;
+    console.log(`${this.title} checked out.`);
+  }
+
+  returnItem() {
+    this.isAvailable = true;
+    console.log(`${this.title} returned.`);
+  }
+}
+class Book extends LibraryItem {
+    constructor(title, id, author, genre) {
+      super(title, id);
+      this.author = author;
+      this.genre = genre;
+    }
+  
+    getDetails() {
+      return `${this.title} by ${this.author} - Genre: ${this.genre}`;
+    }
+  }
+  
+  class DVD extends LibraryItem {
+    constructor(title, id, director, duration) {
+      super(title, id);
+      this.director = director;
+      this.duration = duration;
+    }
+  
+    getDetails() {
+      return `${this.title}, Director: ${this.director}, ${this.duration} mins`;
+    }
+  }
+  
+  class Magazine extends LibraryItem {
+    constructor(title, id, issueNumber, publisher) {
+      super(title, id);
+      this.issueNumber = issueNumber;
+      this.publisher = publisher;
+    }
+  
+    getDetails() {
+      return `${this.title} - Issue ${this.issueNumber}, Publisher: ${this.publisher}`;
+    }
+  }
+
+  const book = new Book("1984", "B001", "Orwell", "Fiction");
+const dvd = new DVD("Inception", "D001", "Nolan", 148);
+const mag = new Magazine("NatGeo", "M001", 202, "NatGeo Society");
+
+book.checkOut();
+dvd.returnItem();
+
+console.log(book.getDetails());
+console.log(dvd.getDetails());
+console.log(mag.getDetails());
+
+  
