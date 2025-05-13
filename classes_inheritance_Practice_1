@@ -1,0 +1,32 @@
+class Vehicle {
+  constructor(type, make, model, year, mileage = 0) {
+    this.type = type;
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.mileage = mileage;
+  }
+
+  drive(distance) {
+    this.mileage += distance;
+  }
+
+  getDetails() {
+    return `${this.year} ${this.make} ${this.model} (${this.type}) - Mileage: ${this.mileage} miles`;
+  }
+}
+
+// Create vehicle instances
+const car = new Vehicle("Car", "Toyota", "Camry", 2020);
+const truck = new Vehicle("Truck", "Ford", "F-150", 2018);
+const motorcycle = new Vehicle("Motorcycle", "Harley-Davidson", "Iron 883", 2022);
+
+// Simulate driving
+car.drive(150);
+truck.drive(300);
+motorcycle.drive(75);
+
+// Display details
+console.log(car.getDetails());
+console.log(truck.getDetails());
+console.log(motorcycle.getDetails());
